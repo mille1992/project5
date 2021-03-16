@@ -1,0 +1,25 @@
+.headerImg {
+    width: 100%;
+}
+.navbar {
+    z-index:9999;
+    top: 65px;
+    width: 100%;
+    position: fixed;
+    border-bottom-color: white;
+    border-bottom-width: 10px;
+}
+.nav-link{
+    color: white;
+    margin-left: 65px; 
+    padding-left: 65px; 
+    margin-right: 65px;
+    padding-right: 65px;
+    font-size: 26px;
+    border-bottom-color: white ;
+}
+.border-3{
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 3px;
+}
