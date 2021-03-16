@@ -1,25 +1,83 @@
 .headerImg {
-    width: 100%;
+    /* The image used */
+    background-image: url("/static/yayberhood/Heidelberg.jpg");
+  
+    min-height: 350px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    /* Needed to position the navbar */
+    position: relative;
 }
-.navbar {
-    z-index:9999;
+.navbar{
     top: 65px;
     width: 100%;
-    position: fixed;
     border-bottom-color: white;
     border-bottom-width: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4);
+}
+.navbar-nav{
+    width: 100%;
+    border-bottom-color: white;
+    border-bottom-width: 10px;
+    text-align: center;
 }
 .nav-link{
     color: white;
-    margin-left: 65px; 
-    padding-left: 65px; 
-    margin-right: 65px;
-    padding-right: 65px;
+    margin-left: auto; 
+    margin-right: auto;
+    width: fit-content;
     font-size: 26px;
     border-bottom-color: white ;
+}
+.nav-link:hover{
+    color: #00d199;
 }
 .border-3{
     border-bottom-style: solid;
     border-bottom-color: white;
     border-bottom-width: 3px;
+}
+.lp_image{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    width: 100%;
+    border-top-right-radius: 25px ;
+    border-top-left-radius: 25px ;
+}
+.lp_image_title{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4px;
+    border-width: 0px;
+    width: 100%;
+    background-color: white;
+    border-radius: 25px ;
+    font-size: 20px;
+}
+.lp_image_container{
+    margin-top: 32px;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border-radius: 25px ;
+    box-shadow: 3px 3px 3px silver;
+}
+.lp_image_link{
+    color: black
+}
+.lp_image_link:hover{
+    color: #00d199;
+    text-decoration: none;
 }
