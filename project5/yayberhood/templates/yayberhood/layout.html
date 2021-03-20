@@ -7,8 +7,12 @@
             {% block title %}
             {% endblock %}
         </title>
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'yayberhood/styles.css' %}" rel="stylesheet">
+        <link href="{% static 'yayberhood/navbar.css' %}" rel="stylesheet">
+        {% block stylesheet %}
+        {% endblock %}
+        
         <script src="https://kit.fontawesome.com/5b9f98b1a0.js" crossorigin="anonymous"></script>
         {% block script %}
         {% endblock %}
@@ -16,12 +20,12 @@
     <body>
         <div class="background" style="background-color:  #d7faf1;">    
             <div class="headerImg border border-light">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="navbar-nav">
+                <nav class="navbar navbar-expand-lg navbar-skin">
+                    <div class="navbar-nav navbar-skin">
                         <a class="nav-item nav-link" href="#" style="margin-left: 60px; margin-right: 60px; ">        
                             <i class="fas fa-home" style="font-size: 32px"></i>
                         </a>
-                        <div class="navbar-nav border-3">
+                        <div class="navbar-nav navbar-skin border-3">
                             <a class="nav-item nav-link" href="#">Little Projects</a>
                             <a class="nav-item nav-link" href="#">Hobbies</a>
                             <a class="nav-item nav-link" href="#">BorrowIt</a>
