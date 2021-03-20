@@ -1,0 +1,42 @@
+.hobbies-category-list{
+    overflow-y: scroll;
+    max-height: 600px;
+}
+.hobbies-category{
+    width: 100%;
+
+    border-bottom: solid;
+    border-color: rgb(194, 194, 194);
+    border-width: 2px;
+
+    margin-top: 32px;
+
+}
+.hobbies-categoryName{
+    width: 100%;
+    font-size: 28px;
+    margin-left: 32px;
+    margin-bottom: 4px;
+}
+.hobbies-designCircle{
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-width: 2px;
+    color: #00c08d;
+    border-radius: 50%;
+    position: relative;
+    bottom: -16px;
+    background-color: #d7faf1;
+}
+.hobbies-category-list::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+  }
+.hobbies-category-list::-webkit-scrollbar-track {
+    background: rgb(143, 143, 143);        /* color of the tracking area */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+}
+.hobbies-category-list::-webkit-scrollbar-thumb {
+    background-color: #00c08d;    /* color of the scroll thumb */
+    border-radius: 5px;
+}

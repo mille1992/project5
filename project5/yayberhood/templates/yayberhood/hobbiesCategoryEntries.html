@@ -1,0 +1,92 @@
+{% extends "yayberhood/layout.html" %}
+
+{% load static %}
+
+
+
+{% block title %}
+{% endblock %}
+
+
+{% block stylesheet %}
+    <link href="{% static 'yayberhood/css/hobbies.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+    <div class="pageTitle-container">
+        <p class="pageTitle">Hobbies</p>
+    </div>
+   
+    <div class="row">
+        <div class="col-2"></div>   
+        <div class="col-8">
+            <div class="row" style="margin-top: 40px;">
+                <div class="col" style="padding-right: 30px; text-align: right;">
+                    <p name="hobbies-addGroup" style="font-size: 20px;">
+                        <i class="fas fa-plus" style="font-size: 20px; vertical-align: middle; color: #00c08d; padding-bottom: 3px;"></i>
+                        Group
+                    </p>
+                </div>
+            </div>
+            <div class="row hobbies-category-list">
+                <div class="row hobbies-category">
+                    <p class="hobbies-categoryName col-10">
+                        Sports
+                    </p>
+                    <div>
+                        <div class="hobbies-designCircle">
+                        </div>
+                    </div>
+                </div>
+                <div class="row hobbies-category">
+                    <p class="hobbies-categoryName col-10">
+                        Animals
+                    </p>
+                    <div>
+                        <div class="hobbies-designCircle">
+                        </div>
+                    </div>
+                </div>
+                <div class="row hobbies-category">
+                    <p class="hobbies-categoryName col-10">
+                        DIY
+                    </p>
+                    <div>
+                        <div class="hobbies-designCircle">
+                        </div>
+                    </div>
+                </div>
+                <div class="row hobbies-category">
+                    <p class="hobbies-categoryName col-10">
+                        Music
+                    </p>
+                    <div>
+                        <div class="hobbies-designCircle">
+                        </div>
+                    </div>
+                </div>
+                <div class="row hobbies-category">
+                    <p class="hobbies-categoryName col-10">
+                        Animals
+                    </p>
+                    <div>
+                        <div class="hobbies-designCircle">
+                        </div>
+                    </div>
+                </div>
+                <div class="row hobbies-category">
+                    <p class="hobbies-categoryName col-10">
+                        Animals
+                    </p>
+                    <div>
+                        <div class="hobbies-designCircle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div> 
+    </div>   
+
+{% endblock %}
