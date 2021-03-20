@@ -30,9 +30,12 @@
     padding-left: 4px;
     padding-right: 4px;
 }
+.littleProjects-scrollView{
+    padding: 24px;
+}
 .littleProjects-scrollView::-webkit-scrollbar {
     width: 8px;               /* width of the entire scrollbar */
-  }
+}
 .littleProjects-scrollView::-webkit-scrollbar-track {
     background: rgb(143, 143, 143);        /* color of the tracking area */
     border-radius: 20px;       /* roundness of the scroll thumb */
