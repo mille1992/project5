@@ -7,3 +7,6 @@ from django.urls import reverse
 # Create your views here.
 def index(request):
     return render(request, "yayberhood/index.html")
+
+def littleProjects(request):
+    return render(request, "yayberhood/littleProjects.html")

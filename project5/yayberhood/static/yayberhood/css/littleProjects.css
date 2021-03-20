@@ -1,0 +1,50 @@
+.littleProjects-outer-box{
+    width: 100%;
+    height: auto;
+    background-color: #EBFCFF;
+    margin-top: 40px;
+}
+.littleProjects-inner-box{
+    width: 100%;
+    height: auto;
+    background-color: #EBFCFF;
+    padding-bottom: 20px;
+}
+.littleProjects-projectTitle{
+    font-size: 24px;
+}
+.littleProjects-projectShortDescription{
+    font-size: 18px;
+}
+.littleProjects-pocket{
+    color: black;
+    border-color: #00c08d;
+    border-style: solid;
+    border-width: 2px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-bottom: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.row{
+    margin-left: auto;
+    margin-right: auto;
+}
+.profilePhoto{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    object-fit: cover;
+}
+.profilePhotoBorder{
+    background-color: teal;
+    border-radius: 50%;
+    width: fit-content;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: 0pc;
+}

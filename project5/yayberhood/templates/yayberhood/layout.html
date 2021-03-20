@@ -18,15 +18,15 @@
         {% endblock %}
     </head>
     <body>
-        <div class="background" style="background-color:  #d7faf1;">    
+        <div class="background">    
             <div class="headerImg border border-light">
-                <nav class="navbar navbar-expand-lg navbar-skin">
+                <nav class="navbar navbar-expand-lg navbar-skin" >
                     <div class="navbar-nav navbar-skin">
-                        <a class="nav-item nav-link" href="#" style="margin-left: 60px; margin-right: 60px; ">        
+                        <a class="nav-item nav-link" href="{% url 'index' %}" style="margin-left: 60px; margin-right: 60px; ">        
                             <i class="fas fa-home" style="font-size: 32px"></i>
                         </a>
                         <div class="navbar-nav navbar-skin border-3">
-                            <a class="nav-item nav-link" href="#">Little Projects</a>
+                            <a class="nav-item nav-link" href="{% url 'littleProjects' %}">Little Projects</a>
                             <a class="nav-item nav-link" href="#">Hobbies</a>
                             <a class="nav-item nav-link" href="#">BorrowIt</a>
                             <a class="nav-item nav-link" href="#">Little Helpers</a>
