@@ -6,8 +6,10 @@
     border-color: white;
     border-width: 3px;
     width: 100%;
-    border-top-right-radius: 25px ;
-    border-top-left-radius: 25px ;
+    border-top-right-radius: 0px ;
+    border-top-left-radius: 0px ;
+    opacity: 1;
+    transition: .5s ease;
 }
 .lp_image_title{
     margin-left: auto;
@@ -20,20 +22,24 @@
     font-size: 20px;
 }
 .lp_image_container{
-    margin-top: 32px;
+    margin-top: 48px;
     border-style: solid;
     border-color: white;
     border-width: 3px;
     width: 100%;
     text-align: center;
     background-color: white;
-    border-radius: 25px ;
-    box-shadow: 3px 3px 3px silver;
+    border-radius: 0px ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .lp_image_link{
-    color: black
+    color: black;
+    transition: .5s ease;
 }
 .lp_image_link:hover{
     color: #00d199;
     text-decoration: none;
+}
+.lp_image_link:hover .lp_image{
+    opacity: 0.5;
 }

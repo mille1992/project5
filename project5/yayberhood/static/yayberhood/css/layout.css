@@ -38,6 +38,7 @@
     width: fit-content;
     font-size: 24px;
     border-bottom-color: white ;
+    transition: .3s ease;
 }
 .nav-link:hover{
     color: #00d199;
@@ -52,7 +53,6 @@
     position: absolute;
     top: 320px;
     width: 100%;
-
     z-index: 1;
 }
 .pageTitle{
@@ -72,4 +72,7 @@
 
     z-index: inherit;
     background-color: white;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
