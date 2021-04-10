@@ -9,7 +9,7 @@
 
 
 {% block stylesheet %}
-    <link href="{% static 'yayberhood/css/hobbies.css' %}" rel="stylesheet">
+    <link href="{% static 'yayberhood/css/borrowIt.css' %}" rel="stylesheet">
 {% endblock %}
 
 
@@ -17,5 +17,81 @@
     <div class="pageTitle-container">
         <p class="pageTitle">Borrow It</p>
     </div>
+   
+    <div class="row">
+        <div class="col-2"></div>   
+        <div class="col-8">
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-3" style="padding-left: 30px; text-align: left;">
+                    <p class="borrowIt-borrowable">
+                        Borrowable
+                    </p>
+                </div>
+                <div class="col-3" style="padding-left: 30px; text-align: left;">
+                    <p class="borrowIt-lent">
+                        Lent
+                    </p>
+                </div>
+                <div class="col-6" style="padding-right: 30px; text-align: right;">
+                    <p name="borrowIt-addGroup" style="font-size: 20px;">
+                        <i class="fas fa-plus" style="font-size: 20px; vertical-align: middle; color: #00c08d; padding-bottom: 3px;"></i>
+                        Entry
+                    </p>
+                </div>
+            </div>
+            <div class="borrowIt-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: block;">
+                <div class="row borrowIt-outer-box" style="margin-top: 0px;">
+                    <div class="row">
+                        <i class="fas fa-angle-down borrowIt-pocket"></i>
+                    </div>
+                    <div class="row borrowIt-inner-box">
+                        <div class="col-8">
+                            <p class="borrowIt-projectTitle">Hammer</p>
+                            <p class="borrowIt-projectShortDescription"> Size: Big, Condition: For one 6er Chicken Nuggets </p>
+                        </div>
+                        <div class="col-4">
+                            <div class="profilePhotoBorder">
+                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row borrowIt-outer-box">
+                    <div class="row">
+                        <i class="fas fa-angle-down borrowIt-pocket"></i>
+                    </div>
+                    <div class="row borrowIt-inner-box">
+                        <div class="col-8">
+                            <p class="borrowIt-projectTitle"> Air Matress</p>
+                            <p class="borrowIt-projectShortDescription"> 2m x 2m, Condition: Pack of ice cream </p>
+                        </div>
+                        <div class="col-4">
+                            <div class="profilePhotoBorder">
+                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row borrowIt-outer-box">
+                    <div class="row">
+                        <i class="fas fa-angle-down borrowIt-pocket"></i>
+                    </div>
+                    <div class="row borrowIt-inner-box">
+                        <div class="col-8">
+                            <p class="borrowIt-projectTitle"> Title of Object</p>
+                            <p class="borrowIt-projectShortDescription"> Short description of object and possible condition to borrow </p>
+                        </div>
+                        <div class="col-4">
+                            <div class="profilePhotoBorder">
+                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-2"></div> 
+    </div>   
 
 {% endblock %}

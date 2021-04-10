@@ -1,0 +1,75 @@
+.borrowIt-borrowable{
+    font-size: 20px;
+}
+.borrowIt-lent{
+    font-size: 20px;
+    opacity: 0.5;
+}
+.borrowIt-outer-box{
+    width: 100%;
+    height: auto;
+    background-color: #EBFCFF;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.borrowIt-inner-box{
+    width: 100%;
+    height: auto;
+    background-color: #EBFCFF;
+    padding-bottom: 20px;
+}
+.borrowIt-projectTitle{
+    font-size: 24px;
+    border-bottom: solid;
+    border-width: 2px;
+}
+.borrowIt-projectShortDescription{
+    font-size: 18px;
+}
+.borrowIt-pocket{
+    color: black;
+    border-color: #00c08d;
+    border-style: solid;
+    border-width: 2px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-bottom: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.borrowIt-scrollView{
+    padding: 24px;
+}
+.borrowIt-scrollView::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+}
+.borrowIt-scrollView::-webkit-scrollbar-track {
+    background: rgb(143, 143, 143);        /* color of the tracking area */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+}
+.borrowIt-scrollView::-webkit-scrollbar-thumb {
+    background-color: #00c08d;    /* color of the scroll thumb */
+    border-radius: 5px;
+}
+.row{
+    margin-left: auto;
+    margin-right: auto;
+}
+.profilePhoto{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    object-fit: cover;
+}
+.profilePhotoBorder{
+    background-color: teal;
+    border-radius: 50%;
+    width: fit-content;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: 0pc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
