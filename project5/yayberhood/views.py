@@ -10,10 +10,15 @@ def index(request):
     return render(request, "yayberhood/landingPage.html")
 
 def littleProjects(request):
-    return render(request, "yayberhood/littleProjects.html")
+    projects = Project.objects.all()
+    projects = projects.order_by("-projectCreationTimestamp").all()
+    return render(request, "yayberhood/littleProjects.html",{
+        "projects":projects,
+    })
 
 def createLittleProject(request):
     if request.method == "POST":
+        ### create project from create projects page ###
         title = request.POST["littleProjects-createTitle"]
         description_short = request.POST["littleProjects-createDescriptionShort"]
         description_detailed = request.POST["littleProjects-createDescriptionDetailed"]

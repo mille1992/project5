@@ -32,46 +32,15 @@
                 </div>
             </div>
             <div class="littleProjects-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px;">
-                <div class="row littleProjects-outer-box" style="margin-top: 0px;">
-                    <div class="row">
-                        <i class="fas fa-angle-down littleProjects-pocket"></i>
-                    </div>
-                    <div class="row littleProjects-inner-box">
-                        <div class="col-8">
-                            <p class="littleProjects-projectTitle"> Title of Project</p>
-                            <p class="littleProjects-projectShortDescription"> Short description of project </p>
-                        </div>
-                        <div class="col-4">
-                            <div class="profilePhotoBorder">
-                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row littleProjects-outer-box">
-                    <div class="row"> 
-                            <i class="fas fa-angle-down littleProjects-pocket"></i>
-                    </div>
-                    <div class="row littleProjects-inner-box">
-                        <div class="col-8">
-                            <p class="littleProjects-projectTitle"> Title of Project</p>
-                            <p class="littleProjects-projectShortDescription"> Short description of project </p>
-                        </div>
-                        <div class="col-4">
-                            <div class="profilePhotoBorder">
-                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% for project in projects %}
                 <div class="row littleProjects-outer-box">
                     <div class="row">
                         <i class="fas fa-angle-down littleProjects-pocket"></i>
                     </div>
                     <div class="row littleProjects-inner-box">
                         <div class="col-8">
-                            <p class="littleProjects-projectTitle"> Title of Project</p>
-                            <p class="littleProjects-projectShortDescription"> Short description of project </p>
+                            <p class="littleProjects-projectTitle"> {{project.projectName}} </p>
+                            <p class="littleProjects-projectShortDescription"> {{project.projectDescriptionShort}} </p>
                         </div>
                         <div class="col-4">
                             <div class="profilePhotoBorder">
@@ -80,54 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row littleProjects-outer-box">
-                    <div class="row">
-                        <i class="fas fa-angle-down littleProjects-pocket"></i>
-                    </div>
-                    <div class="row littleProjects-inner-box">
-                        <div class="col-8">
-                            <p class="littleProjects-projectTitle"> Title of Project</p>
-                            <p class="littleProjects-projectShortDescription"> Short description of project </p>
-                        </div>
-                        <div class="col-4">
-                            <div class="profilePhotoBorder">
-                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row littleProjects-outer-box">
-                    <div class="row">
-                        <i class="fas fa-angle-down littleProjects-pocket"></i>
-                    </div>
-                    <div class="row littleProjects-inner-box">
-                        <div class="col-8">
-                            <p class="littleProjects-projectTitle"> Title of Project</p>
-                            <p class="littleProjects-projectShortDescription"> Short description of project </p>
-                        </div>
-                        <div class="col-4">
-                            <div class="profilePhotoBorder">
-                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row littleProjects-outer-box">
-                    <div class="row">
-                        <i class="fas fa-angle-down littleProjects-pocket"></i>
-                    </div>
-                    <div class="row littleProjects-inner-box">
-                        <div class="col-8">
-                            <p class="littleProjects-projectTitle"> Title of Project</p>
-                            <p class="littleProjects-projectShortDescription"> Short description of project </p>
-                        </div>
-                        <div class="col-4">
-                            <div class="profilePhotoBorder">
-                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
         </div> 
