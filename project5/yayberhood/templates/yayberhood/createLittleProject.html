@@ -22,22 +22,22 @@
         <div class="col-2"></div>   
         <div class="col-8">
             <div class="littleProjects-createForm" style="margin-top: 40px;">
-                <form action="{% url 'createLittleProject' %}" method="post">
+                <form action="{% url 'createLittleProject' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        <input class="form-control mb-3" autofocus type="text" id="littleProjects-createTitle" placeholder="Title" required>
+                        <input class="form-control mb-3" autofocus type="text" name="littleProjects-createTitle" placeholder="Title" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control mb-3" type="text" id="littleProjects-createDescriptionShort" placeholder="Short description - displayed alongside the title" required>
+                        <input class="form-control mb-3" type="text" name="littleProjects-createDescriptionShort" placeholder="Short description - displayed alongside the title" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control mb-3" style="min-height: 150px;" id="littleProjects-createDescriptionDetailed" placeholder="Detailed description"></textarea>
+                        <textarea class="form-control mb-3" style="min-height: 150px;" name="littleProjects-createDescriptionDetailed" placeholder="Detailed description"></textarea>
                     </div>
                     <div class="form-group">
-                        <select class="form-select mb-3" id="littleProjects-donationBool" aria-label="Donations accepted">
-                            <option selected value="0">Donations accepted?</option>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                        <select class="form-select mb-3" name="littleProjects-donationBool" aria-label="Donations accepted">
+                            <option selected value="False">Donations accepted?</option>
+                            <option value="True">Yes</option>
+                            <option value="False">No</option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -14,7 +14,22 @@ def littleProjects(request):
 
 def createLittleProject(request):
     if request.method == "POST":
-        print(request)
+        title = request.POST["littleProjects-createTitle"]
+        description_short = request.POST["littleProjects-createDescriptionShort"]
+        description_detailed = request.POST["littleProjects-createDescriptionDetailed"]
+        donation_bool = request.POST["littleProjects-donationBool"]=="True"
+        currUser = User.objects.get(id = request.user.id)
+        
+        newProject = Project.objects.create(
+            projectOwner = currUser,
+            projectName = title,
+            projectDescriptionShort = description_short,
+            projectDescriptionDetailed = description_detailed,
+            projectDonation_bool = donation_bool
+        )
+        newProject.projectAdmins.add(currUser)
+        newProject.projectMembers.add(currUser)
+        newProject.save()
         return HttpResponseRedirect(reverse("littleProjects"))
     else:
         return render(request, "yayberhood/createLittleProject.html")
