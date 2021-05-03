@@ -36,6 +36,9 @@
     padding-bottom: 0;
     padding-left: 4px;
     padding-right: 4px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 .borrowIt-scrollView{
     padding: 24px;

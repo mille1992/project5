@@ -12,6 +12,13 @@ def index(request):
 def littleProjects(request):
     return render(request, "yayberhood/littleProjects.html")
 
+def createLittleProject(request):
+    if request.method == "POST":
+        print(request)
+        return HttpResponseRedirect(reverse("littleProjects"))
+    else:
+        return render(request, "yayberhood/createLittleProject.html")
+
 def hobbies(request):
     return render(request, "yayberhood/hobbies.html")
 
