@@ -9,6 +9,7 @@ urlpatterns = [
     path("hobbies", views.hobbies, name="hobbies"),
     path("createHobbyGroup", views.createHobbyGroup, name="createHobbyGroup"),
     path("borrowIt", views.borrowIt, name="borrowIt"),
+    path("createBorrowIt", views.createBorrowIt, name="createBorrowIt"),
     path("littleHelpers", views.littleHelpers, name="littleHelpers"),
     path("createLittleHelpers", views.createLittleHelpers, name="createLittleHelpers"),
     path("login", views.login_view, name="login"),

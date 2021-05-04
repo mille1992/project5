@@ -69,7 +69,31 @@ def createHobbyGroup(request):
     return render(request, "yayberhood/createHobbyGroup.html")
 
 def borrowIt(request):
-    return render(request, "yayberhood/borrowIt.html")
+    rentals = Rental.objects.all()
+    rentals = rentals.order_by("-rentalCreationTimestamp").all()
+    return render(request, "yayberhood/borrowIt.html",{
+        "rentals":rentals,
+    })
+
+def createBorrowIt(request):
+    if request.method == "POST":
+        ### create hobby group from create hobby group page ###
+        title = request.POST["borrowIt-createTitle"]
+        description_short = request.POST["borrowIt-createDescriptionShort"]
+        description_detailed = request.POST["borrowIt-createDescriptionDetailed"]
+        borrowIt_rentalType = request.POST["borrowIt-rentalType"]
+        curr_user = User.objects.get(id = request.user.id)
+        
+        new_rental = Rental.objects.create(
+            rentalOwner = curr_user,
+            rentalTitle = title,
+            rentalDescriptionShort = description_short,
+            rentalDescriptionDetailed = description_detailed,
+            rentalType = borrowIt_rentalType
+        )
+        new_rental.save()
+        return HttpResponseRedirect(reverse("borrowIt"))
+    return render(request, "yayberhood/createBorrowIt.html")
     
 def littleHelpers(request):
     little_helpers = Help.objects.all()

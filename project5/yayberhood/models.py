@@ -45,4 +45,4 @@ class Rental(models.Model):
     RentalTypes = models.TextChoices('rentalTypes', 'Searches Offers')
     rentalType = models.CharField(blank=False, choices = RentalTypes.choices, max_length=10)
     rentalRentable = models.BooleanField(default=True)
-    borrowingUser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="rentalsBorrowedByUser")
+    borrowingUser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="rentalsBorrowedByUser", blank=True, null=True)
