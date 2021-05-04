@@ -72,7 +72,31 @@ def borrowIt(request):
     return render(request, "yayberhood/borrowIt.html")
     
 def littleHelpers(request):
-    return render(request, "yayberhood/littleHelpers.html")
+    little_helpers = Help.objects.all()
+    little_helpers = little_helpers.order_by("-helpCreationTimestamp").all()
+    return render(request, "yayberhood/littleHelpers.html",{
+        "little_helpers":little_helpers,
+    })
+
+def createLittleHelpers(request):
+    if request.method == "POST":
+        ### create hobby group from create hobby group page ###
+        title = request.POST["littleHelpers-createTitle"]
+        description_short = request.POST["littleHelpers-createDescriptionShort"]
+        description_detailed = request.POST["littleHelpers-createDescriptionDetailed"]
+        littleHelpers_helpType = request.POST["littleHelpers-helpType"]
+        curr_user = User.objects.get(id = request.user.id)
+        
+        new_help = Help.objects.create(
+            helpOwner = curr_user,
+            helpTitle = title,
+            helpDescriptionShort = description_short,
+            helpDescriptionDetailed = description_detailed,
+            helpType = littleHelpers_helpType
+        )
+        new_help.save()
+        return HttpResponseRedirect(reverse("littleHelpers"))
+    return render(request, "yayberhood/createLittleHelpers.html")
 
 def login_view(request):
     if request.method == "POST":
