@@ -41,10 +41,11 @@
                         <div class="col-8">
                             <p class="littleProjects-projectTitle"> {{project.projectName}} </p>
                             <p class="littleProjects-projectShortDescription"> {{project.projectDescriptionShort}} </p>
+                            <p class="littleProjects-projectCreationTimestamp"> <i>Created: {{project.projectCreationTimestamp}}</i></p>
                         </div>
                         <div class="col-4">
                             <div class="profilePhotoBorder">
-                                <img class="profilePhoto" src="{% static 'yayberhood/img/ProfileGabi.jpg' %}">
+                                <img class="profilePhoto" src={{project.projectOwner.profilePhotoUrl}} >
                             </div>
                         </div>
                     </div>

@@ -72,3 +72,8 @@
 .littleProjects-createForm{
     padding: 24px;
 }
+.littleProjects-projectCreationTimestamp{
+    font-size: 12px;
+    position: relative;
+    bottom: -40px;
+}
