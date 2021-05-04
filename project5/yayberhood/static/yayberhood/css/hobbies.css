@@ -56,12 +56,12 @@
     background-color: #EBFCFF;
     padding-bottom: 20px;
 }
-.hobbies-projectTitle{
+.hobbies-groupTitle{
     font-size: 24px;
     border-bottom: solid;
     border-width: 2px;
 }
-.hobbies-projectShortDescription{
+.hobbies-groupShortDescription{
     font-size: 18px;
 }
 .hobbies-pocket{
@@ -113,4 +113,12 @@
     margin-left: auto;
     margin-right: 0pc;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.hobbies-createForm{
+    padding: 24px;
+}
+.hobbies-groupCreationTimestamp{
+    font-size: 12px;
+    position: relative;
+    bottom: -40px;
 }

@@ -40,7 +40,33 @@ def createLittleProject(request):
         return render(request, "yayberhood/createLittleProject.html")
 
 def hobbies(request):
-    return render(request, "yayberhood/hobbies.html")
+    hobby_groups = HobbyGroup.objects.all()
+    hobby_groups = hobby_groups.order_by("-hobbyGroupCreationTimestamp").all()
+    return render(request, "yayberhood/hobbies.html",{
+        "hobby_groups":hobby_groups,
+    })
+
+def createHobbyGroup(request):
+    if request.method == "POST":
+        ### create hobby group from create hobby group page ###
+        title = request.POST["hobbies-createTitle"]
+        description_short = request.POST["hobbies-createDescriptionShort"]
+        description_detailed = request.POST["hobbies-createDescriptionDetailed"]
+        hobbies_category = request.POST["hobbies-category"]
+        curr_user = User.objects.get(id = request.user.id)
+        
+        new_hobby_group = HobbyGroup.objects.create(
+            hobbyGroupOwner = curr_user,
+            hobbyGroupName = title,
+            hobbyGroupDescriptionShort = description_short,
+            hobbyGroupDescriptionDetailed = description_detailed,
+            hobbyGroupCategories = hobbies_category
+        )
+        new_hobby_group.hobbyGroupAdmins.add(curr_user)
+        new_hobby_group.hobbyGroupMembers.add(curr_user)
+        new_hobby_group.save()
+        return HttpResponseRedirect(reverse("hobbies"))
+    return render(request, "yayberhood/createHobbyGroup.html")
 
 def borrowIt(request):
     return render(request, "yayberhood/borrowIt.html")

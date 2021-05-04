@@ -24,10 +24,15 @@
             <div class="row" style="margin-top: 40px;">
                 <div class="col" style="padding-right: 30px; text-align: right;">
                     <p name="littleProjects-addProject" style="font-size: 20px;">
+                        {% if user.is_authenticated %}
                         <a class="createButton" href="{% url 'createLittleProject' %}">
                         <i class="fas fa-plus plus-icon" style="font-size: 20px; vertical-align: middle; color: #00c08d; padding-bottom: 3px;"></i>
                          Project
                         </a>
+                        {% else %}
+                        <i class="fas fa-plus plus-icon" style="font-size: 20px; vertical-align: middle; color: #00c08d; padding-bottom: 3px;"></i>
+                        Login to create a new project
+                        {% endif %}
                     </p>
                 </div>
             </div>
