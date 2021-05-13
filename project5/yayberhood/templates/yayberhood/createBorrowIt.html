@@ -25,10 +25,10 @@
                 <form action="{% url 'createBorrowIt' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        <input class="form-control mb-3" autofocus type="text" name="borrowIt-createTitle" placeholder="Title" required>
+                        <input class="form-control mb-3" autofocus type="text" name="borrowIt-createTitle" placeholder="Title of your search/offer" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control mb-3" type="text" name="borrowIt-createDescriptionShort" placeholder="Short description - displayed alongside the title" required>
+                        <input class="form-control mb-3" type="text" name="borrowIt-createDescriptionShort" placeholder="Short description of the item + conditions" required>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control mb-3" style="min-height: 150px;" name="borrowIt-createDescriptionDetailed" placeholder="Detailed description"></textarea>
