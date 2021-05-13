@@ -40,12 +40,28 @@
                 {% for project in projects %}
                 <div class="row littleProjects-outer-box">
                     <div class="row">
-                        <i class="fas fa-angle-down littleProjects-pocket"></i>
+                        <i class="fas fa-angle-down littleProjects-pocket" data-projectId = {{project.id}}></i>
                     </div>
                     <div class="row littleProjects-inner-box">
                         <div class="col-8">
                             <p class="littleProjects-projectTitle"> {{project.projectName}} </p>
                             <p class="littleProjects-projectShortDescription"> {{project.projectDescriptionShort}} </p>
+                            <div style="display: none;">
+                                <p class="littleProjects-projectDetailedDescription">{{project.projectDescriptionDetailed}}</p>
+                                {% if project.projectDonation_bool is True %}
+                                    <form action="{% url 'littleProjects' %}" method="POST">
+                                        {% csrf_token %}
+                                        <div class="form-group" style="margin-top: 24px;">
+                                            <p>Current Donations: {{project.projectDonation_value}} €</p>
+                                            <div class="row">
+                                                <input style="width: 15%;" type="number" class="form-control" id="donationValueInput" name="donationValue" value="{{ project.projectDonation_value|add:1 }}" min="{{ project.projectDonation_value|add:1 }}">
+                                                <p class="form-control" style="width: 5%; margin: 0px;">€</p>
+                                                <input style="width: 25%; background-color: #00c08d;" type="submit" class="form-control" value="Place Donation">
+                                            </div>
+                                        </div>
+                                    </form>
+                                {% endif %}
+                            </div>    
                             <p class="littleProjects-projectCreationTimestamp"> <i>Created: {{project.projectCreationTimestamp}}</i></p>
                         </div>
                         <div class="col-4">

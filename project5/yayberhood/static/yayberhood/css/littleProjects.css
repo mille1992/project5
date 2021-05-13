@@ -1,6 +1,6 @@
 .littleProjects-outer-box{
     width: 100%;
-    height: auto;
+    height: auto; 
     background-color: #EBFCFF;
     margin-top: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -17,6 +17,9 @@
     border-width: 2px;
 }
 .littleProjects-projectShortDescription{
+    font-size: 18px;
+}
+.littleProjects-projectDetailedDescription{
     font-size: 18px;
 }
 .littleProjects-pocket{
@@ -75,5 +78,6 @@
 .littleProjects-projectCreationTimestamp{
     font-size: 12px;
     position: relative;
-    bottom: -40px;
+    bottom: 0px;
+    margin-top: 40px;
 }
