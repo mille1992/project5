@@ -14,7 +14,7 @@
 
 
 {% block script %}
-    <script src="{% static 'yayberhood/js/littleProjects.js' %}"></script>
+    
 {% endblock %}
 
 
@@ -44,14 +44,14 @@
             <div class="littleProjects-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px;">
                 {% for project in projects %}
                 <div class="row littleProjects-outer-box">
-                    <div class="row" name="expandPost" data-projectId = {{project.id}}>
-                        <i class="fas fa-angle-down littleProjects-pocket" data-projectId = {{project.id}}></i>
+                    <div class="row" name="expandPost" data-postId = {{project.id}}>
+                        <i class="fas fa-angle-down postPocket" data-postId = {{project.id}}></i>
                     </div>
                     <div class="row littleProjects-inner-box">
                         <div class="col-8">
                             <p class="littleProjects-projectTitle"> {{project.projectName}} </p>
                             <p class="littleProjects-projectShortDescription"> {{project.projectDescriptionShort}} </p>
-                            <div class="littleProjects-expandedPostView" name="littleProjects-expandedPostView" id="littleProjects-expandedPostView_{{project.id}}">
+                            <div class="expandedPostView" name="expandedPostView" id="expandedPostView_{{project.id}}">
                                 <br>
                                 <p><u>Details</u></p>
                                 <p class="littleProjects-projectDetailedDescription">{{project.projectDescriptionDetailed}}</p>

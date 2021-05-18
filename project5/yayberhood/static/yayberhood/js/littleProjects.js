@@ -8,15 +8,15 @@ document.addEventListener('DOMContentLoaded',function(){
                 //document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).style.maxHeight = "999px";
                 //document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).style.opacity = "1";
                 //document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).style.display = "block";
-                document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).classList.add("expandDetailedView")
-                document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).classList.remove("shrinkDetailedView")
+                document.querySelector(`#expandedPostView_${clickedPostProjectId}`).classList.add("expandDetailedView")
+                document.querySelector(`#expandedPostView_${clickedPostProjectId}`).classList.remove("shrinkDetailedView")
                 post.clickedBool = true;
             }else{
                 //document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).style.maxHeight = "0px";
                 //document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).style.opacity = "0";
                 //document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).style.display = "none";
-                document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).classList.add("shrinkDetailedView")
-                document.querySelector(`#littleProjects-expandedPostView_${clickedPostProjectId}`).classList.remove("expandDetailedView")
+                document.querySelector(`#expandedPostView_${clickedPostProjectId}`).classList.add("shrinkDetailedView")
+                document.querySelector(`#expandedPostView_${clickedPostProjectId}`).classList.remove("expandDetailedView")
                 post.clickedBool = false;
             }
         });

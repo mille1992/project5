@@ -1,20 +1,21 @@
 document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('[name="expandPost"]').forEach(post => {
-        post.clickedBool = false;
+        post.expandPostClicked_bool = false;
+        console.log(post)
         post.addEventListener('click', event => {
             clickedPost = event.target;
-            clickedPostId = clickedPost.dataset.postId;
             console.log(clickedPost)
-            console.log(clickedPostId)
-            
-            if (post.clickedBool == false){
-                console.log(document.querySelector(`#expandedPostView_${clickedPostId}`))
-                document.querySelector(`#expandedPostView_${clickedPostId}`).style.display = "block";
-                post.clickedBool = true;
+            clickedPostId = clickedPost.dataset.postid;
+            if (post.expandPostClicked_bool == false){
+                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.add("expandDetailedView")
+                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.remove("shrinkDetailedView")
+                post.expandPostClicked_bool = true;
             }else{
-                document.querySelector(`#expandedPostView_${clickedPostId}`).style.display = "none";
-                post.clickedBool = false;
+                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.add("shrinkDetailedView")
+                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.remove("expandDetailedView")
+                post.expandPostClicked_bool = false;
             }
         });
+
     });
 });
