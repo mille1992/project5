@@ -96,13 +96,26 @@
             <div class="hobbies-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: block;">
                 {% for hobby_group in hobby_groups %}
                 <div class="row hobbies-outer-box">
-                    <div class="row">
-                        <i class="fas fa-angle-down postPocket"></i>
+                    <div class="row" name="expandPost" data-postId = {{hobby_group.id}}>
+                        <i class="fas fa-angle-down postPocket" data-postId = {{hobby_group.id}}></i>
                     </div>
                     <div class="row hobbies-inner-box">
                         <div class="col-8">
                             <p class="hobbies-groupTitle"> {{hobby_group.hobbyGroupName}} </p>
-                            <p class="hobbies-groupShortDescription"> {{hobby_group.hobbyGroupDescriptionShort}} </p>
+                            <p class="hobbies-groupDescription"> {{hobby_group.hobbyGroupDescriptionShort}} </p>
+                            <div class="expandedPostView" name="expandedPostView" id="expandedPostView_{{hobby_group.id}}">
+                                <br>
+                                <p><u>Details</u></p>
+                                <p class="hobbies-groupDescription">{{hobby_group.hobbyGroupDescriptionDetailed}}</p>
+                                {% if user.is_authenticated %}
+                                    <form action="{% url 'hobbies' %}" method="POST">
+                                        {% csrf_token %}
+                                        <div class="form-group" style="margin-top: 24px;">
+                                            <input style="background-color: #00c08d;" type="submit" class="form-control" value="Request Membership">
+                                        </div>
+                                    </form>
+                                {% endif %}
+                            </div>
                             <p class="hobbies-groupCreationTimestamp"> <i>Created: {{hobby_group.hobbyGroupCreationTimestamp}} | Category: {{hobby_group.hobbyGroupCategories}}</i></p>
                         </div>
                         <div class="col-4">

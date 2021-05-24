@@ -61,7 +61,7 @@
     border-bottom: solid;
     border-width: 2px;
 }
-.hobbies-groupShortDescription{
+.hobbies-groupDescription{
     font-size: 18px;
 }
 .hobbies-scrollView{
@@ -106,5 +106,6 @@
 .hobbies-groupCreationTimestamp{
     font-size: 12px;
     position: relative;
-    bottom: -40px;
+    bottom: 0px;
+    margin-top: 40px;
 }
