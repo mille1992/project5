@@ -9,14 +9,18 @@
     border-bottom: solid;
     border-color: rgb(194, 194, 194);
     border-width: 2px;
-
     margin-top: 32px;
 }
 .hobbies-categoryName{
     width: 100%;
     font-size: 28px;
-    margin-left: 32px;
-    margin-bottom: 4px;
+    padding-left: 96px;
+    margin-bottom: -32px;
+    z-index: 10;
+}
+.hobbies-categoryName:hover{
+    opacity: 50%;
+    cursor: pointer;  
 }
 .hobbies-designCircle{
     width: 40px;
@@ -39,6 +43,16 @@
 .hobbies-category-list::-webkit-scrollbar-thumb {
     background-color: #00c08d;    /* color of the scroll thumb */
     border-radius: 5px;
+}
+.hobbies-categoriesFilterToggle{
+    padding-left: 30px;
+    text-align: left;
+    font-size: 20px;
+    display: none;
+}
+.hobbies-categoriesFilterToggle:hover{
+    opacity: 50%;
+    cursor: pointer; 
 }
 
 

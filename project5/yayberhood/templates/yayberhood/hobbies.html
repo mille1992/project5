@@ -12,6 +12,9 @@
     <link href="{% static 'yayberhood/css/hobbies.css' %}" rel="stylesheet">
 {% endblock %}
 
+{% block script %}
+    <script src="{% static 'yayberhood/js/hobbies.js' %}"></script>
+{% endblock %}
 
 {% block body %}
     <div class="pageTitle-container">
@@ -22,6 +25,9 @@
         <div class="col-2"></div>   
         <div class="col-8">
             <div class="row" style="margin-top: 40px;">
+                <div class="col hobbies-categoriesFilterToggle" id="hobbies-categoriesFilterToggle"> 
+                    Categories
+                </div>
                 <div class="col" style="padding-right: 30px; text-align: right;">
                     <p name="hobbies-addGroup" style="font-size: 20px;">
                         {% if user.is_authenticated %}
@@ -36,66 +42,23 @@
                     </p>
                 </div>
             </div>
-            <div class="row hobbies-category-list" style="display: none;">
-                <div class="row hobbies-category">
-                    <p class="hobbies-categoryName col-10">
-                        Sports
-                    </p>
-                    <div>
-                        <div class="hobbies-designCircle">
+            <div class="row hobbies-category-list" id="hobbies-category-list" style="display: block;">
+                {% for hobby_group_category_used in hobby_group_categories_used %}
+                    <div class="row hobbies-category">
+                        <p class="hobbies-categoryName col-10" name="hobbies-categoryName" data-categoryName="{{hobby_group_category_used}}">
+                           {{ hobby_group_category_used }}
+                        </p>
+                        <div>
+                            <div class="hobbies-designCircle">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row hobbies-category">
-                    <p class="hobbies-categoryName col-10">
-                        Animals
-                    </p>
-                    <div>
-                        <div class="hobbies-designCircle">
-                        </div>
-                    </div>
-                </div>
-                <div class="row hobbies-category">
-                    <p class="hobbies-categoryName col-10">
-                        DIY
-                    </p>
-                    <div>
-                        <div class="hobbies-designCircle">
-                        </div>
-                    </div>
-                </div>
-                <div class="row hobbies-category">
-                    <p class="hobbies-categoryName col-10">
-                        Music
-                    </p>
-                    <div>
-                        <div class="hobbies-designCircle">
-                        </div>
-                    </div>
-                </div>
-                <div class="row hobbies-category">
-                    <p class="hobbies-categoryName col-10">
-                        Animals
-                    </p>
-                    <div>
-                        <div class="hobbies-designCircle">
-                        </div>
-                    </div>
-                </div>
-                <div class="row hobbies-category">
-                    <p class="hobbies-categoryName col-10">
-                        Animals
-                    </p>
-                    <div>
-                        <div class="hobbies-designCircle">
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
-            <div class="hobbies-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: block;">
+            <div class="hobbies-scrollView" id="hobbies-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: none;">
                 {% for hobby_group in hobby_groups %}
-                <div class="row hobbies-outer-box">
+                <div class="row hobbies-outer-box" name="hobbies-outer-box" data-categoryName="{{hobby_group.hobbyGroupCategories}}">
                     <div class="row" name="expandPost" data-postId = {{hobby_group.id}}>
                         <i class="fas fa-angle-down postPocket" data-postId = {{hobby_group.id}}></i>
                     </div>

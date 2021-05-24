@@ -42,8 +42,10 @@ def createLittleProject(request):
 def hobbies(request):
     hobby_groups = HobbyGroup.objects.all()
     hobby_groups = hobby_groups.order_by("-hobbyGroupCreationTimestamp").all()
+    hobby_group_categories_used = HobbyGroup.objects.values_list('hobbyGroupCategories', flat=True).distinct()
     return render(request, "yayberhood/hobbies.html",{
         "hobby_groups":hobby_groups,
+        "hobby_group_categories_used": hobby_group_categories_used
     })
 
 def createHobbyGroup(request):
