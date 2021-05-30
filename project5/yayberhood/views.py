@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from .models import *
+import json
 
 # Create your views here.
 def index(request):
@@ -11,7 +12,13 @@ def index(request):
 
 def littleProjects(request):
     if request.method == "POST":
-        print(request)
+        #little_project_donation_value = request.POST["donationValue"]
+        request_data = json.loads(request.body)
+        little_project_donation_value = request_data["littleProjectNewDonationValue"]
+        little_project_post_id = request_data["littleProjectPostId"]
+        print(little_project_post_id)
+        print(little_project_donation_value)
+        return JsonResponse({"newdonationValue":little_project_donation_value})
     else:
         projects = Project.objects.all()
         projects = projects.order_by("-projectCreationTimestamp").all()
