@@ -11,7 +11,7 @@ def index(request):
 
 def littleProjects(request):
     if request.method == "POST":
-        0==0
+        print(request)
     else:
         projects = Project.objects.all()
         projects = projects.order_by("-projectCreationTimestamp").all()
