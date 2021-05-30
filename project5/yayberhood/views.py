@@ -10,11 +10,14 @@ def index(request):
     return render(request, "yayberhood/landingPage.html")
 
 def littleProjects(request):
-    projects = Project.objects.all()
-    projects = projects.order_by("-projectCreationTimestamp").all()
-    return render(request, "yayberhood/littleProjects.html",{
-        "projects":projects,
-    })
+    if request.method == "POST":
+        0==0
+    else:
+        projects = Project.objects.all()
+        projects = projects.order_by("-projectCreationTimestamp").all()
+        return render(request, "yayberhood/littleProjects.html",{
+            "projects":projects,
+        })
 
 def createLittleProject(request):
     if request.method == "POST":

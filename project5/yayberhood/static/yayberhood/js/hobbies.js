@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded',function(){
             clickedCategoryName = clickedCategory.dataset.categoryname;
             document.getElementById('hobbies-category-list').style.display = "none";
             categoryToggleButton = document.getElementById('hobbies-categoriesFilterToggle');
-            console.log(categoryToggleButton)
             categoryToggleButton.style.display = "block";
             categoryToggleButton.addEventListener('click', () => {
                 document.getElementById('hobbies-category-list').style.display = "block";
@@ -22,6 +21,5 @@ document.addEventListener('DOMContentLoaded',function(){
                }
             });
         });
-
     });
 });

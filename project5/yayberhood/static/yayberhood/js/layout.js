@@ -5,15 +5,27 @@ document.addEventListener('DOMContentLoaded',function(){
             clickedPost = event.target;
             clickedPostId = clickedPost.dataset.postid;
             if (post.expandPostClicked_bool == false){
-                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.add("expandDetailedView")
-                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.remove("shrinkDetailedView")
+                clickedPost_expandedPostView = document.querySelector(`#expandedPostView_${clickedPostId}`)
+                
+                clickedPost_expandedPostView.children[3].style.display = "block"
+
+                clickedPost_expandedPostView.classList.add("expandDetailedView")
+                clickedPost_expandedPostView.classList.remove("shrinkDetailedView")
                 post.expandPostClicked_bool = true;
+
             }else{
-                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.add("shrinkDetailedView")
-                document.querySelector(`#expandedPostView_${clickedPostId}`).classList.remove("expandDetailedView")
+                clickedPost_expandedPostView = document.querySelector(`#expandedPostView_${clickedPostId}`)
+                clickedPost_expandedPostView.classList.add("shrinkDetailedView")
+                clickedPost_expandedPostView.classList.remove("expandDetailedView")
                 post.expandPostClicked_bool = false;
+                clickedPost_expandedPostView.ontransitionend = () => {
+                    if (post.expandPostClicked_bool == false){
+                        clickedPost_expandedPostView.children[3].style.display = "none"
+                    }
+                }
             }
         });
+
 
     });
 });
