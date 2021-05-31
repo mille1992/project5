@@ -12,15 +12,19 @@ def index(request):
 
 def littleProjects(request):
     if request.method == "POST":
-        #little_project_donation_value = request.POST["donationValue"]
         request_data = json.loads(request.body)
         little_project_donation_value = request_data["littleProjectNewDonationValue"]
         little_project_post_id = request_data["littleProjectPostId"]
-        print(little_project_post_id)
-        print(little_project_donation_value)
+
+        clicked_project = Project.objects.get(id=little_project_post_id)
+        clicked_project.projectDonation_value = little_project_donation_value
+        clicked_project.save()
+
         return JsonResponse({"newdonationValue":little_project_donation_value})
     else:
         projects = Project.objects.all()
+        for project in projects:
+            print(project.projectDonation_value)
         projects = projects.order_by("-projectCreationTimestamp").all()
         return render(request, "yayberhood/littleProjects.html",{
             "projects":projects,

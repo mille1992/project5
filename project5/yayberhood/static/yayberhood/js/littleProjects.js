@@ -4,12 +4,18 @@ document.addEventListener('DOMContentLoaded',function(){
         form.children[1].children[2].addEventListener('click', event =>{
             event.preventDefault();
             littleProjectNewDonationValue = form.children[1].children[0].value
-            fetchDonationValue(littleProjectPostId,littleProjectNewDonationValue)
+            if (littleProjectNewDonationValue >= form.children[1].children[0].min){
+                fetchDonationValue(form.parentNode.parentNode.dataset.postid,littleProjectNewDonationValue,form)
+                form.children[1].children[0].min = parseInt(littleProjectNewDonationValue) + 1
+                form.children[1].children[0].value = parseInt(littleProjectNewDonationValue) + 1
+            }else{
+                console.log("Please choose a higher value");
+            }       
         })
     })
 })
 
-function fetchDonationValue(littleProjectPostId,littleProjectNewDonationValue){
+function fetchDonationValue(littleProjectPostId,littleProjectNewDonationValue,form){
     fetch('/littleProjects', {
         method: 'POST',
         //headers to enable the csrf_token functionality
@@ -24,9 +30,10 @@ function fetchDonationValue(littleProjectPostId,littleProjectNewDonationValue){
             credentials: 'same-origin',
         })
     })
-    .then(response => response.json())
-    .then(console.log("response"))
-    
+    .then(response => responseJson = response.json())
+    .then(responseFeedback => {
+        form.children[0].innerHTML = `Current Donation: ${responseFeedback.newdonationValue} €`
+    })
 }
 
 // make sure the csrf token functionality can be used

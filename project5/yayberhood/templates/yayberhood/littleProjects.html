@@ -59,7 +59,7 @@
                                     <form action="{% url 'littleProjects' %}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-group" name="littleProjects_donationForm" style="margin-top: 24px;">
-                                            <p>Currently Donations: {{project.projectDonation_value}} €</p>
+                                            <p id="donationValue">Current Donations: {{project.projectDonation_value}} €</p>
                                             <div class="row">
                                                 <input style="width: 15%;" type="number" class="form-control" id="donationValueInput" name="donationValue" value="{{ project.projectDonation_value|add:1 }}" min="{{ project.projectDonation_value|add:1 }}">
                                                 <p class="form-control" style="width: 5%; margin: 0px;">€</p>
