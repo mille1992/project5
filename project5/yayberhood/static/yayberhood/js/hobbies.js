@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(){
+
+    // show / hide details and request membership button on click on icon
     document.querySelectorAll('[name="hobbies-categoryName"]').forEach(categoryName => {
         categoryName.addEventListener('click', event => {
             clickedCategory = event.target;
@@ -22,4 +24,7 @@ document.addEventListener('DOMContentLoaded',function(){
             });
         });
     });
+
+
+    
 });

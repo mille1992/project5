@@ -70,13 +70,18 @@
                                 <br>
                                 <p><u>Details</u></p>
                                 <p class="hobbies-groupDescription">{{hobby_group.hobbyGroupDescriptionDetailed}}</p>
-                                {% if user.is_authenticated %}
+                                {% if user.is_authenticated and hobby_group not in curr_user_memberships %}
                                     <form action="{% url 'hobbies' %}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-group" style="margin-top: 24px;">
+                                            <input type="hidden" name="hobbies-hobbyGroupId" value={{hobby_group.id}}>
                                             <input style="background-color: #00c08d;" type="submit" class="form-control" value="Request Membership">
                                         </div>
                                     </form>
+                                {% elif hobby_group in curr_user_memberships%}
+                                    <br>
+                                    <p>You are already a member of this group</p>
+                                    <a href="#">Visit this groups page</a>
                                 {% endif %}
                             </div>
                             <p class="hobbies-groupCreationTimestamp"> <i>Created: {{hobby_group.hobbyGroupCreationTimestamp}} | Category: {{hobby_group.hobbyGroupCategories}}</i></p>

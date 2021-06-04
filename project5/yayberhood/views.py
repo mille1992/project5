@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import AnonymousUser
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
@@ -54,13 +55,38 @@ def createLittleProject(request):
         return render(request, "yayberhood/createLittleProject.html")
 
 def hobbies(request):
-    hobby_groups = HobbyGroup.objects.all()
-    hobby_groups = hobby_groups.order_by("-hobbyGroupCreationTimestamp").all()
-    hobby_group_categories_used = HobbyGroup.objects.values_list('hobbyGroupCategories', flat=True).distinct()
-    return render(request, "yayberhood/hobbies.html",{
-        "hobby_groups":hobby_groups,
-        "hobby_group_categories_used": hobby_group_categories_used
-    })
+    if request.method == "POST":
+        curr_user = request.user
+        hobby_group_id = request.POST["hobbies-hobbyGroupId"]
+        hobby_group = HobbyGroup.objects.get(id = hobby_group_id)
+        hobby_group.hobbyGroupMembers.add(curr_user)
+        hobby_group.save()
+
+        hobby_groups = HobbyGroup.objects.all()
+        hobby_groups = hobby_groups.order_by("-hobbyGroupCreationTimestamp").all()
+        hobby_group_categories_used = HobbyGroup.objects.values_list('hobbyGroupCategories', flat=True).distinct()
+        
+        curr_user_memberships = curr_user.hobbyGroupMemberships.all()
+
+        return render(request, "yayberhood/hobbies.html",{
+            "hobby_groups":hobby_groups,
+            "hobby_group_categories_used": hobby_group_categories_used,
+            "curr_user_memberships": curr_user_memberships
+        })
+    else:
+        hobby_groups = HobbyGroup.objects.all()
+        hobby_groups = hobby_groups.order_by("-hobbyGroupCreationTimestamp").all()
+        hobby_group_categories_used = HobbyGroup.objects.values_list('hobbyGroupCategories', flat=True).distinct()
+        if request.user.is_authenticated:
+            curr_user = request.user
+            curr_user_memberships = curr_user.hobbyGroupMemberships.all()
+        else:
+            curr_user_memberships = []
+        return render(request, "yayberhood/hobbies.html",{
+            "hobby_groups":hobby_groups,
+            "hobby_group_categories_used": hobby_group_categories_used,
+            "curr_user_memberships": curr_user_memberships
+        })
 
 def createHobbyGroup(request):
     if request.method == "POST":
