@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded',function(){
             littleProjectNewDonationValue = form.children[1].children[0].value
             if (littleProjectNewDonationValue >= form.children[1].children[0].min){
                 fetchDonationValue(form.parentNode.parentNode.dataset.postid,littleProjectNewDonationValue,form)
-                form.children[1].children[0].min = parseInt(littleProjectNewDonationValue) + 1
-                form.children[1].children[0].value = parseInt(littleProjectNewDonationValue) + 1
+                form.children[1].children[0].min = 1
+                form.children[1].children[0].value = 1
             }else{
                 console.log("Please choose a higher value");
-            }       
+            }           
         })
     })
 })
@@ -32,6 +32,7 @@ function fetchDonationValue(littleProjectPostId,littleProjectNewDonationValue,fo
     })
     .then(response => responseJson = response.json())
     .then(responseFeedback => {
+        // display updated donation value
         form.children[0].innerHTML = `Current Donation: ${responseFeedback.newdonationValue} €`
     })
 }

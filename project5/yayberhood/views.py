@@ -18,14 +18,12 @@ def littleProjects(request):
         little_project_post_id = request_data["littleProjectPostId"]
 
         clicked_project = Project.objects.get(id=little_project_post_id)
-        clicked_project.projectDonation_value = little_project_donation_value
+        clicked_project.projectDonation_value = clicked_project.projectDonation_value + int(little_project_donation_value)
         clicked_project.save()
 
-        return JsonResponse({"newdonationValue":little_project_donation_value})
+        return JsonResponse({"newdonationValue":clicked_project.projectDonation_value})
     else:
         projects = Project.objects.all()
-        for project in projects:
-            print(project.projectDonation_value)
         projects = projects.order_by("-projectCreationTimestamp").all()
         return render(request, "yayberhood/littleProjects.html",{
             "projects":projects,

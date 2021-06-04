@@ -61,7 +61,7 @@
                                         <div class="form-group" name="littleProjects_donationForm" style="margin-top: 24px;">
                                             <p id="donationValue">Current Donations: {{project.projectDonation_value}} €</p>
                                             <div class="row">
-                                                <input style="width: 15%;" type="number" class="form-control" id="donationValueInput" name="donationValue" value="{{ project.projectDonation_value|add:1 }}" min="{{ project.projectDonation_value|add:1 }}">
+                                                <input style="width: 15%;" type="number" class="form-control" id="donationValueInput" name="donationValue" value=1 min="1">
                                                 <p class="form-control" style="width: 5%; margin: 0px;">€</p>
                                                 <input style="width: 25%; background-color: #00c08d;" type="submit" class="form-control" value="Place Donation">
                                             </div>
