@@ -1,9 +1,24 @@
-.littleHelpers-offering{
-    font-size: 20px;
-}
-.littleHelpers-seeking{
+.littleHelpers-offers{
     font-size: 20px;
     opacity: 0.5;
+}
+.littleHelpers-searches{
+    font-size: 20px;
+    opacity: 0.5;
+}
+.littleHelpers-typeEnabled{
+    opacity: 1;
+}
+.littleHelpers-typeEnabled:hover{
+    opacity: 0.5;
+    cursor: pointer; 
+}
+.littleHelpers-typeDisabled{
+    opacity: 0.5;
+}
+.littleHelpers-typeDisabled:hover{
+    opacity: 1;
+    cursor: pointer; 
 }
 .littleHelpers-outer-box{
     width: 100%;

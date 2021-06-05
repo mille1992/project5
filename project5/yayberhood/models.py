@@ -33,7 +33,7 @@ class Help(models.Model):
     helpDescriptionShort = models.TextField(blank=False)
     helpDescriptionDetailed = models.TextField(blank=False)
     helpOwner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="helpOwnerships")
-    HelpTypes = models.TextChoices('helpTypes', 'Requests Offers')
+    HelpTypes = models.TextChoices('helpTypes', 'Searches Offers')
     helpType = models.CharField(blank=False, choices = HelpTypes.choices, max_length=10)
 
 class Rental(models.Model):

@@ -12,6 +12,9 @@
     <link href="{% static 'yayberhood/css/littleHelpers.css' %}" rel="stylesheet">
 {% endblock %}
 
+{% block script %}
+    <script src="{% static 'yayberhood/js/littleHelpers.js' %}"></script>
+{% endblock %}
 
 {% block body %}
     <div class="pageTitle-container">
@@ -23,13 +26,13 @@
         <div class="col-8">
             <div class="row" style="margin-top: 40px;">
                 <div class="col-2" style="padding-left: 30px; text-align: left;">
-                    <p class="littleHelpers-offering">
-                        Offering
+                    <p class="littleHelpers-searches" data-helptypevalue="Searches">
+                        Searches
                     </p>
                 </div>
                 <div class="col-2" style="padding-left: 30px; text-align: left;">
-                    <p class="littleHelpers-seeking">
-                        Seeking
+                    <p class="littleHelpers-offers" data-helptypevalue="Offers">
+                        Offers
                     </p>
                 </div>
                 <div class="col-8" style="padding-right: 30px; text-align: right;">
@@ -48,7 +51,7 @@
             </div>
             <div class="littleHelpers-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: block;">
                 {% for little_help in little_helpers %}
-                <div class="row littleHelpers-outer-box">
+                <div class="row littleHelpers-outer-box" data-helpType = {{little_help.helpType}}>
                     <div class="row">
                         <i class="fas fa-angle-down postPocket"></i>
                     </div>
