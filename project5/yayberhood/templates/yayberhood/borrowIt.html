@@ -12,6 +12,9 @@
     <link href="{% static 'yayberhood/css/borrowIt.css' %}" rel="stylesheet">
 {% endblock %}
 
+{% block script %}
+    <script src="{% static 'yayberhood/js/borrowIt.js' %}"></script>
+{% endblock %}
 
 {% block body %}
     <div class="pageTitle-container">
@@ -23,12 +26,12 @@
         <div class="col-8">
             <div class="row" style="margin-top: 40px;">
                 <div class="col-2" style="padding-left: 30px; text-align: left;">
-                    <p class="borrowIt-borrowable">
+                    <p class="borrowIt-searches" data-rentalTypeValue="Searches">
                         Searches
                     </p>
                 </div>
                 <div class="col-2" style="padding-left: 30px; text-align: left;">
-                    <p class="borrowIt-lent">
+                    <p class="borrowIt-offers" data-rentalTypeValue="Offers">
                         Offers
                     </p>
                 </div>
@@ -49,7 +52,7 @@
             </div>
             <div class="borrowIt-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: block;">
                 {% for rental in rentals %}
-                <div class="row borrowIt-outer-box">
+                <div class="row borrowIt-outer-box" data-rentalType = {{rental.rentalType}}>
                     <div class="row">
                         <i class="fas fa-angle-down postPocket"></i>
                     </div>

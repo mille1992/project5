@@ -1,10 +1,27 @@
-.borrowIt-borrowable{
-    font-size: 20px;
-}
-.borrowIt-lent{
+.borrowIt-searches{
     font-size: 20px;
     opacity: 0.5;
 }
+.borrowIt-offers{
+    font-size: 20px;
+    opacity: 0.5;
+}
+.borrowIt-typeEnabled{
+    opacity: 1;
+
+}
+.borrowIt-typeEnabled:hover{
+    opacity: 0.5;
+    cursor: pointer; 
+}
+.borrowIt-typeDisabled{
+    opacity: 0.5;
+}
+.borrowIt-typeDisabled:hover{
+    opacity: 1;
+    cursor: pointer; 
+}
+
 .borrowIt-outer-box{
     width: 100%;
     height: auto;
