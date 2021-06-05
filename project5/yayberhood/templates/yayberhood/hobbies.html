@@ -43,6 +43,15 @@
                 </div>
             </div>
             <div class="row hobbies-category-list" id="hobbies-category-list" style="display: block;">
+                <div class="row hobbies-category">
+                    <p class="hobbies-categoryName col-10" name="hobbies-categoryName" data-categoryName="All">
+                       All
+                    </p>
+                    <div>
+                        <div class="hobbies-designCircle">
+                        </div>
+                    </div>
+                </div>
                 {% for hobby_group_category_used in hobby_group_categories_used %}
                     <div class="row hobbies-category">
                         <p class="hobbies-categoryName col-10" name="hobbies-categoryName" data-categoryName="{{hobby_group_category_used}}">

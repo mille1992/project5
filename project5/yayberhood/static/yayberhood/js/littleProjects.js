@@ -33,7 +33,7 @@ function fetchDonationValue(littleProjectPostId,littleProjectNewDonationValue,fo
     .then(response => responseJson = response.json())
     .then(responseFeedback => {
         // display updated donation value
-        form.children[0].innerHTML = `Current Donation: ${responseFeedback.newdonationValue} €`
+        form.children[0].innerHTML = `Current Donations: ${responseFeedback.newdonationValue} €`
     })
 }
 
