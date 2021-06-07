@@ -136,11 +136,29 @@ def createBorrowIt(request):
     return render(request, "yayberhood/createBorrowIt.html")
     
 def littleHelpers(request):
-    little_helpers = Help.objects.all()
-    little_helpers = little_helpers.order_by("-helpCreationTimestamp").all()
-    return render(request, "yayberhood/littleHelpers.html",{
-        "little_helpers":little_helpers,
-    })
+    if request.method == "POST":
+        curr_user = request.user
+        post_owner = request.POST["littleHelpers-helpPostOwner"]
+        message_content = request.POST["littleHelpers-message"]
+        message_type = request.POST["littleHelpers-messageType"]
+        
+        message_recipient = User.objects.get(username = post_owner)
+        
+        print(f"Send message from {curr_user} to {post_owner}: {message_content}")
+        newMessage = Message.objects.create(messageOwner = curr_user, messageRecipient = message_recipient, messageContent = message_content, messageType = message_type)
+        newMessage.save()        
+        
+        little_helpers = Help.objects.all()
+        little_helpers = little_helpers.order_by("-helpCreationTimestamp").all()
+        return render(request, "yayberhood/littleHelpers.html",{
+            "little_helpers":little_helpers,
+        })
+    else:
+        little_helpers = Help.objects.all()
+        little_helpers = little_helpers.order_by("-helpCreationTimestamp").all()
+        return render(request, "yayberhood/littleHelpers.html",{
+            "little_helpers":little_helpers,
+        })
 
 def createLittleHelpers(request):
     if request.method == "POST":

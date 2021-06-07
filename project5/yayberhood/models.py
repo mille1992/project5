@@ -46,3 +46,11 @@ class Rental(models.Model):
     rentalType = models.CharField(blank=False, choices = RentalTypes.choices, max_length=10)
     rentalRentable = models.BooleanField(default=True)
     borrowingUser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="rentalsBorrowedByUser", blank=True, null=True)
+
+class Message(models.Model):
+    messageOwner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="messageOwnerships")
+    messageRecipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipientOfMessages", blank=True)
+    messageTimestamp = models.DateTimeField(auto_now_add=True)
+    messageContent = models.TextField(blank=True)
+    MessageTypes = models.TextChoices('messageTypes', 'Project HobbyGroup Help Rental')
+    messageType = models.CharField(blank=True, choices = MessageTypes.choices, max_length=10)

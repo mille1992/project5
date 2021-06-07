@@ -52,13 +52,31 @@
             <div class="littleHelpers-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: block;">
                 {% for little_help in little_helpers %}
                 <div class="row littleHelpers-outer-box" data-helpType = {{little_help.helpType}}>
-                    <div class="row">
-                        <i class="fas fa-angle-down postPocket"></i>
+                    <div class="row" name="expandPost" data-postId = {{little_help.id}}>
+                        <i class="fas fa-angle-down postPocket" data-postId = {{little_help.id}}></i>
                     </div>
                     <div class="row littleHelpers-inner-box">
                         <div class="col-8">
                             <p class="littleHelpers-helpTitle">{{ little_help.helpTitle }}</p>
                             <p class="littleHelpers-helpShortDescription"> {{ little_help.helpDescriptionShort }} </p>
+                            <div class="expandedPostView" name="expandedPostView" id="expandedPostView_{{little_help.id}}">
+                                <br>
+                                <p><u>Details</u></p>
+                                <p class="littleHelpers-groupDescription">{{little_help.helpDescriptionDetailed}}</p>
+                                {% if user.is_authenticated and user != little_help.helpOwner %}
+                                    <form action="{% url 'littleHelpers' %}" method="POST">
+                                        {% csrf_token %}
+                                        <div class="form-group" style="margin-top: 24px;">
+                                            <input type="hidden" name="littleHelpers-helpId" value={{little_help.id}}>
+                                            <input type="hidden" name="littleHelpers-helpPostOwner" value={{little_help.helpOwner}}>
+                                            <input type="hidden" name="littleHelpers-messageType" value="Help">
+                                            <textarea class="form-control" id="littleHelpers-message" name="littleHelpers-message"  placeholder="Write a message"></textarea>
+                                            <input style="background-color: #00c08d;" type="submit" class="form-control" value="Request / Offer Help">
+                                        </div>
+                                    </form>
+                                {% endif %}
+                            </div>
+                            <p class="littleHelpers-helpCreationTimestamp"> <i>Created: {{little_help.helpCreationTimestamp}}</i></p>
                         </div>
                         <div class="col-4">
                             <div class="profilePhotoBorder">
