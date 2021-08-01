@@ -115,11 +115,27 @@ def createHobbyGroup(request):
 
 
 def borrowIt(request):
-    rentals = Rental.objects.all()
-    rentals = rentals.order_by("-rentalCreationTimestamp").all()
-    return render(request, "yayberhood/borrowIt.html",{
-        "rentals":rentals,
-    })
+    if request.method == "POST":
+        curr_user = request.user
+        post_owner = request.POST["borrowIt-rentalPostOwner"]
+        message_content = request.POST["borrowIt-message"]
+        message_type = request.POST["borrowIt-messageType"]
+        message_recipient = User.objects.get(username = post_owner)
+        
+        newMessage = Message.objects.create(messageOwner = curr_user, messageRecipient = message_recipient, messageContent = message_content, messageType = message_type)
+        newMessage.save()        
+        
+        rentals = Rental.objects.all()
+        rentals = rentals.order_by("-rentalCreationTimestamp").all()
+        return render(request, "yayberhood/borrowIt.html",{
+            "rentals":rentals,
+        })
+    else:
+        rentals = Rental.objects.all()
+        rentals = rentals.order_by("-rentalCreationTimestamp").all()
+        return render(request, "yayberhood/borrowIt.html",{
+            "rentals":rentals,
+        })
 
 def createBorrowIt(request):
     if request.method == "POST":
@@ -145,15 +161,14 @@ def createBorrowIt(request):
 
 def littleHelpers(request):
     if request.method == "POST":
+        print("test")
         curr_user = request.user
         post_owner = request.POST["littleHelpers-helpPostOwner"]
-        print(post_owner)
         message_content = request.POST["littleHelpers-message"]
         message_type = request.POST["littleHelpers-messageType"]
         
         message_recipient = User.objects.get(username = post_owner)
         
-        print(f"Send message from {curr_user} to {post_owner}: {message_content}")
         newMessage = Message.objects.create(messageOwner = curr_user, messageRecipient = message_recipient, messageContent = message_content, messageType = message_type)
         newMessage.save()        
         

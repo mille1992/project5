@@ -52,13 +52,29 @@
             <div class="borrowIt-scrollView" style="margin-top: 40px; overflow-y: scroll; max-height: 700px; display: block;">
                 {% for rental in rentals %}
                 <div class="row borrowIt-outer-box" data-rentalType = {{rental.rentalType}}>
-                    <div class="row">
-                        <i class="fas fa-angle-down postPocket"></i>
+                    <div class="row" name="expandPost" data-postId = {{rental.id}}>
+                        <i class="fas fa-angle-down postPocket" data-postId = {{rental.id}}></i>
                     </div>
                     <div class="row borrowIt-inner-box">
                         <div class="col-8">
                             <p class="borrowIt-projectTitle">{{rental.rentalTitle}}</p>
                             <p class="borrowIt-projectShortDescription"> {{rental.rentalDescriptionShort}} </p>
+                            <div class="expandedPostView" name="expandedPostView" id="expandedPostView_{{rental.id}}">
+                                <br>
+                                <p><u>Details</u></p>
+                                {% if user.is_authenticated and user != rental.rentalOwner %}
+                                <form action="{% url 'borrowIt' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group" style="margin-top: 24px;">
+                                        <input type="hidden" name="borrowIt-rentalId" value={{rental.id}}>
+                                        <input type="hidden" name="borrowIt-rentalPostOwner" value={{rental.rentalOwner}}>
+                                        <input type="hidden" name="borrowIt-messageType" value="BorrowIt">
+                                        <textarea class="form-control" id="borrowIt-message" name="borrowIt-message"  placeholder="Write a message"></textarea>
+                                        <input style="background-color: #00c08d;" type="submit" class="form-control" value="Contact Owner">
+                                    </div>
+                                </form>
+                                {% endif %}
+                            </div>
                         </div>
                         <div class="col-4">
                             <div class="profilePhotoBorder">
