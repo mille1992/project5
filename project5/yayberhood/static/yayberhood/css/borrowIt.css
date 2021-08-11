@@ -34,12 +34,12 @@
     background-color: #EBFCFF;
     padding-bottom: 20px;
 }
-.borrowIt-projectTitle{
+.borrowIt-rentalTitle{
     font-size: 24px;
     border-bottom: solid;
     border-width: 2px;
 }
-.borrowIt-projectShortDescription{
+.borrowIt-rentalShortDescription{
     font-size: 18px;
 }
 .borrowIt-scrollView{
@@ -81,8 +81,9 @@
 .borrowIt-createForm{
     padding: 24px;
 }
-.borrowIt-groupCreationTimestamp{
+.borrowIt-rentalCreationTimestamp{
     font-size: 12px;
     position: relative;
-    bottom: -40px;
+    bottom: 0px;
+    margin-top: 40px;
 }

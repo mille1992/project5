@@ -300,8 +300,7 @@ def check_user_participations_projects(request):
     project_participations.sort()
 
     return project_participations
-
-
+    
 def check_user_participations_hobbies(request):
     curr_user = request.user
 
