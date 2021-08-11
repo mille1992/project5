@@ -94,4 +94,4 @@ Used to register the main models to the admin page
 Includes the used models.
 
 ## views.py
-Defines the functionality of the webpage. It handles the Post and Get requests, checks and modifications on databases.
+Defines the functionality of the webpage. It handles the Post and Get requests, calls and modifies database data.
