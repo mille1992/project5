@@ -6,6 +6,10 @@ The Main functionalities consist of
 - a space to organize groups to perform hobbies together and exchange infos about the hobbies
 - a space to rent / lent things to one another.
 
+# How to run it
+- Navigate to project5 folder with your local terminal, where manage.py is located
+- Enter python manage.py runserver into your terminal
+- Open your browser and go to localhost
 
 # Distinctiveness and Complexity
 This paragraph describes why the webpage fulfills the required complexity and distinctiveness.
